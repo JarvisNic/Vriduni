@@ -11,24 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727230625) do
+ActiveRecord::Schema.define(version: 20160628200752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "catalogos", force: :cascade do |t|
-    t.text    "nombre"
-    t.text    "mercado"
-    t.text    "infraestructura"
-    t.text    "descripcion"
-    t.text    "resultados"
-    t.string  "informante"
-    t.string  "entidad"
-    t.string  "autorizado"
-    t.date    "fregistro"
-    t.integer "tipo_id"
-    t.integer "tipo"
-    t.integer "categorizacion"
+    t.text     "nombre"
+    t.text     "mercado"
+    t.integer  "tipo"
+    t.text     "infraestructura"
+    t.text     "descripcion"
+    t.text     "resultados"
+    t.string   "fregistro"
+    t.string   "informante"
+    t.string   "entidad"
+    t.string   "autorizado"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "tipo_id"
+    t.integer  "categorizacion"
   end
 
   add_index "catalogos", ["tipo_id"], name: "index_catalogos_on_tipo_id", using: :btree
@@ -86,15 +88,20 @@ ActiveRecord::Schema.define(version: 20160727230625) do
   end
 
   create_table "tipos", force: :cascade do |t|
-    t.string "descripcion"
+    t.integer  "id_servicio"
+    t.string   "descripcion"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "siglas"
-    t.string  "email"
-    t.string  "password_digest"
-    t.date    "fingreso"
-    t.integer "tipo"
+    t.string   "siglas"
+    t.string   "email"
+    t.string   "password_digest"
+    t.date     "fingreso"
+    t.integer  "tipo"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_foreign_key "catalogos", "tipos"
