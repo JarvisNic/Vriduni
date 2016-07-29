@@ -1,0 +1,61 @@
+
+<% if @convenio.errors.any? %>
+  <div style="margin:1em;" class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+  </button>
+<%end%>
+
+<%= form_for(@convenio) do |f| %>
+  <% if @convenio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@convenio.errors.count, "error") %> prohibited this convenio from being saved:</h2>
+
+      <ul>
+      <% @convenio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @convenio.errors.any? %>
+  </div>
+<%end%>
+
+    <%= f.label :Nombre,:style=>"width:10%;float:left;margin:0 0.3em;" %>
+    <%= f.text_field :nombre, class: "form-control name", placeholder: "Convenio",:style=>"width:20%;float:left;" %>
+
+    <%= f.label :Responsable ,:style=>"width:10%;margin:0 0.3em;float:left;"%>
+    <%= f.text_field :responsable, class: "form-control resp", placeholder: "",:style=>"width:20%;float:left;" %>
+
+    <%= f.label :Categoría,:style=>"width:15%;float:left;margin:0 0.3em;" %>
+    <%= f.collection_select :categoria, Convenio.select(:categoria).distinct.where.not(categoria: ''), :categoria, :categoria, {prompt: "Seleccionar Categoria"}, {:class=>'form-control',:style=>"width:20%;float:left;"} %>
+
+    <%= f.label :Objetivo ,:style=>"width:10%;float:left;margin:0 0.3em;"%>
+    <%= f.text_area :objetivo, class: "form-control obj", placeholder: "Objetivo",:style=>"width:51.1%;height:60px;float:left;" %>
+
+    <%= f.label :Área ,:style=>"width:15%;float:left;margin:0 0.3em;"%>
+    <%= f.collection_select :area, Convenio.select(:area).distinct.where.not(area: ''), :area, :area, {prompt: "Seleccionar Area"}, {:class=>'form-control',:style=>"width:20%;float:left;"} %>
+
+    <%= f.label :Pdf,:style=>"width:15%;float:left;margin:0 0.3em;" %>
+    <%= f.text_field :pdf, class: "form-control pdf", placeholder: "" ,:style=>"width:20%;float:left;"%>
+<br><br>
+    <%= f.label :Fecha_inicio ,:style=>"width:10%;float:left;margin:0 0.3em;"%>
+    <%= f.date_select :fecha_inicio, {}, {:class=>'form-control date-control',:style=>"width:10%;float:left;"} %>
+
+    <%= f.label :Fecha_fin,:style=>"width:15%;float:left;margin:0 0.3em;" %>
+    <%= f.date_select :fecha_fin, {}, {:class=>'form-control date-control',:style=>"width:10%;float:left;"}%>
+<br><br><br><br><br>
+    <%= f.label :Fecha_firma ,:style=>"width:10%;float:left;margin:0 0.3em;"%>
+    <%= f.date_select :fecha_firma, {}, {:class=>'form-control date-control',:style=>"width:10%;float:left;"} %>
+  </div></br>
+<br>
+<br>
+  <div class="actions" >
+    <%= f.submit "Guardar convenio",  :class => 'btn btn-default', :style => 'float:left;  margin-left:20px;',:onclick => "return  valconvenio()"%></br></br>
+  </div>
+
+<br>
+<% end %>
+
+

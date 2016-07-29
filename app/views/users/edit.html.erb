@@ -1,0 +1,9 @@
+<h1>Editing User</h1>
+<% if current_user %>
+<%= render 'form_pas' %>
+
+<%= link_to 'Show', @user %> |<% else %> 
+<h1>Acceso denegado :)</h1>
+<%= link_to 'Back', root_path %>
+
+<% end %> 

@@ -1,0 +1,52 @@
+<% @nav = "convenio" %>
+<div style="overflow:auto;">
+<h1 style="margin:5px 0.5em;float:left;position:relative;width:60%;">Mostrando Convenios</h1>
+
+<%= form_tag convenios_path, :method => "get" do %>
+  <div class="input-group col-md-4" style="padding: 5px;float:right;">
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Nombre del Convenio"%>
+    <span class="input-group-btn">
+        <%= submit_tag "Search" , class: "btn btn-primary" , name: nil %>
+        </span>
+    </div>
+<%end%>
+
+
+<table class = "table table-bordered table-hover table-striped" style="width:95%;margin: 0 5px;">
+  <thead style="width:80%;">
+    <tr>
+      <th style="width:50%">Nombre</th>
+      <th style="width:30%">Responsable</th>
+      <th style="width:10%">Categoria</th>
+      <th style="width:10%">Area</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @a = 0 %>
+      <% @convenios.each do |convenio| %>
+      <td><%= link_to convenio.nombre, convenio %></td>
+      <td><%= convenio.responsable %></td>
+      <td><%= convenio.categoria %></td>
+      <td><%= convenio.area %></td>
+      <td>
+      <%= link_to "http://webvrid.uni.edu.ni/documents/"+convenio.pdf do%><i class="btn btn-default btn-sm glyphicon glyphicon-download-alt"></i><%end%>
+        
+      </td>
+       <%@a = @a+1 %>
+    </tr>
+      <%end%>
+   </tbody>
+</table>
+ <%= paginate(@convenios) %>
+<% if current_user and current_user.tipo.to_i == 2 %>
+ <% @g = current_user.siglas %>
+<%= link_to 'Nuevo Convenio', new_convenio_path ,class: "btn btn-default" %>
+<%= @g %>
+
+<div>
+
+</div>
+
+<% end %>
+</div>

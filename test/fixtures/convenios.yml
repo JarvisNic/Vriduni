@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  objetivo: MyText
+  responsable: MyString
+  area: MyString
+  pdf: MyString
+  categoria: MyString
+  fecha_inicio: 2016-03-11
+  fecha_fin: 2016-03-11
+  fecha_firma: 2016-03-11
+
+two:
+  nombre: MyString
+  objetivo: MyText
+  responsable: MyString
+  area: MyString
+  pdf: MyString
+  categoria: MyString
+  fecha_inicio: 2016-03-11
+  fecha_fin: 2016-03-11
+  fecha_firma: 2016-03-11

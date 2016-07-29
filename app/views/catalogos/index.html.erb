@@ -1,0 +1,159 @@
+<% if current_user%>
+<% @nav = "catalogo" %>
+<% @a %>
+<div style="overflow:auto;">
+<h1 style="margin:5px 0.5em;float:left;position:relative;width:60%;">Estos son tus servicios <%= current_user.siglas %></h1>
+<%= form_tag catalogos_path, :method => "get" do %>
+
+  <div class="input-group col-md-4" style="padding: 5px;float:right;">
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Nombre del Servicio"%>
+    <span class="input-group-btn ">
+        <%= submit_tag "Buscar" , class: "btn btn-primary" , name: nil %>
+        <%= link_to '', new_catalogo_path , class: "btn btn-default glyphicon glyphicon-plus" , :title => 'Agregar' , style: 'background-color: #FFFFF' %>
+        </span>
+    </div>
+<%end%>
+
+
+<table class = "table table-bordered table-hover table-striped" style="width:95%;     margin: 0 5px;">
+  <thead>
+    <tr>
+      <th style="width:60%">Nombre del servicio</th>
+      <th style="width:20%">Contacto</th>
+      <th style="width:7%">Entidad</th>
+      <th style="width:7%">Categorizacion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @a = 0 %>
+      <% @aa.each do |a| %>
+      
+      <td><%= link_to a.nombre, a, style:"color:#000;" %></td>
+      <td><%= a.informante %></td>
+      <td><%= a.entidad %></td>
+      <% case a.categorizacion.to_i %>
+     <% when 1%>
+      <td>Biotecnología</td>
+      <% when 2%>
+      <td>Calidad Educativa</td>
+      <% when 3%>
+      <td>Ciencias del Ambiente</td>
+      <% when 4%>
+      <td>Controlo y Automatización</td>
+      <% when 5%>
+      <td>Diseño y Construcción</td>
+      <% when 6%>
+      <td>Energía</td>
+      <% when 7%>
+      <td>Ing. de Procesos</td>
+      <% when 8%>
+      <td>Tecn. Agropecuaria</td>
+      <% when 9%>
+      <td>TIC</td>
+      <% else %>
+      <td>No especificado</td>
+      <%end %>
+      <td>
+        <div class="dropdown" style="margin: 1px 0;">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+            <li style="float:left;padding-right:20px;"><%= link_to 'Mostrar', a %></li><span class="glyphicon glyphicon-expand" aria-hidden="true" style="float:right; margin:0.4em 0.5em;"></span>
+            <li style="float:left;">
+            <% if current_user %>
+            <% if current_user.siglas == a.entidad %><%= link_to 'Editar', edit_catalogo_path(a) %></li><span class="glyphicon glyphicon-edit" aria-hidden="true" style="float:right;margin:0.4em 0.5em;"></span>
+            <li style="float:left;"><%= link_to 'Eliminar', a, method: :delete, data: { confirm: '¿Estas Seguro?' } %></li><span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="float:right;margin:0.4em 0.5em;"></span><%end%><%end%>
+          </ul>
+        </div>
+      </td>
+       <%@a = @a+1 %>
+    </tr>
+      <%end%>
+   </tbody>
+</table>
+<% @d.count %>
+
+<div style="float:center;width:100%;" class="container">
+
+    <%= paginate (@d) %>
+</div>
+</div>
+<% else %>
+
+<div style="overflow:auto;">
+<h1 style="margin:5px 0.5em;float:left;position:relative;width:60%;">Mostrando Catálogo de Servicios</h1>
+<%= form_tag catalogos_path, :method => "get" do %>
+  <div class="input-group col-md-4" style="padding: 5px;float:right;">
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Nombre del Servicio"%>
+    <span class="input-group-btn">
+        <%= submit_tag "Search" , class: "btn btn-primary" , name: nil %>
+        </span>
+    </div>
+</div>
+<%end%>
+<table class = "table table-bordered table-hover table-striped" style="width:95%;     margin: 0 5px;">
+  <thead>
+    <tr>
+      <th style="width:60%">Nombre del servicio</th>
+      <th style="width:20%">Contacto</th>
+      <th style="width:7%">Entidad</th>
+      <th style="width:7%">Categorizacion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @a = 0 %>
+      <% @catalogos.each do |catalogos| %>
+      
+      <td><%= link_to catalogos.nombre, catalogos, style:"color:#000;" %></td>
+      <td><%= catalogos.informante %></td>
+      <td><%= catalogos.entidad %></td>
+     <% case catalogos.categorizacion.to_i %>
+     <% when 1%>
+      <td>Biotecnología</td>
+      <% when 2%>
+      <td>Calidad Educativa</td>
+      <% when 3%>
+      <td>Ciencias del Ambiente</td>
+      <% when 4%>
+      <td>Controlo y Automatización</td>
+      <% when 5%>
+      <td>Diseño y Construcción</td>
+      <% when 6%>
+      <td>Energía</td>
+      <% when 7%>
+      <td>Ing. de Procesos</td>
+      <% when 8%>
+      <td>Tecn. Agropecuaria</td>
+      <% when 9%>
+      <td>TIC</td>
+      <% else %>
+      <td>No especificado</td>
+      <%end %>
+      <td>
+        <div class="dropdown" style="margin: 1px 0;">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+            <li style="float:left;padding-right:20px;"><%= link_to 'Mostrar', catalogos %></li><span class="glyphicon glyphicon-expand" aria-hidden="true" style="float:right; margin:0.4em 0.5em;"></span>
+            <li style="float:left;">
+            <% if current_user %>
+            <% if current_user.siglas == catalogos.entidad %><%= link_to 'Editar', edit_catalogo_path(catalogos) %></li><span class="glyphicon glyphicon-edit" aria-hidden="true" style="float:right;margin:0.4em 0.5em;"></span>
+            <li style="float:left;"><%= link_to 'Eliminar', catalogos , method: :delete, data: { confirm: '¿Estas Seguro?' } %></li><span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="float:right;margin:0.4em 0.5em;"></span><%end%><%end%>
+          </ul>
+        </div>
+      </td>
+       <%@a = @a+1 %>
+    </tr>
+      <%end%>
+   </tbody>
+</table>
+<div style="float:center;width:100%;" class="container">
+    <%= paginate(@catalogos) %>
+</div>
+
+<%end%>
+

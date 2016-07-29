@@ -1,0 +1,9 @@
+<% @nav = "catalogo" %>
+<% if current_user %>
+<h1 style="margin: 0.3em 2em;">Nuevo Servicio</h1>
+<hr>
+
+<%= render 'form' %>
+<% else %> <h1>Acceso denegado :)</h1>
+<%= link_to 'Atras', catalogos_path, style: "margin-left:20px;" ,class: "btn btn-default"%>
+<% end %> 

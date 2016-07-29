@@ -1,0 +1,180 @@
+<% @nav = "catalogo" %>
+<div class="container">
+  <% if current_user %>
+    <% if current_user.siglas == @catalogo.entidad %>
+<div style="width:90%;margin:auto;position:relative;">
+
+  <div class="col-md-12">
+
+        <div class="panel panel-default">
+
+          <div class="panel-heading " style="height: 100%;"> 
+            <div class="container" style="width: 100%;">
+
+            <h1 class="panel-title" style="float: left;"> <%= @catalogo.nombre %> </h1>
+    
+           <%= link_to '', edit_catalogo_path(@catalogo) ,class: "btn btn-default glyphicon glyphicon-pencil col-md-1" ,style: "float:right;margin-right: 2%;width: 7%;"%>
+           <%= link_to '', @catalogo, method: :delete, data: { confirm: '¿Estas Seguro?', class: "btn btn-default glyphicon glyphicon-pencil col-md-1" ,style: "float:right;margin-right: 2%;width: 7%;"} %>
+           </div>
+          </div>
+
+    <div class="panel-body">
+    <div class="row">
+        <h3> <strong class= "col-md-3">Entidad:</strong></h3>
+        <h4 class ="col-md-9"><%= @catalogo.entidad %></h4>
+</div>
+
+   <div class="row"> <h3><strong class= "col-md-3">Mercado: </strong></h3>
+   <h4 class ="col-md-9">  <%= @catalogo.mercado %></h4>
+ </div>
+  
+   <div class="row"> <h3><strong class= "col-md-3">Tipo: </strong></h3>
+     <h4 class ="col-md-9"><%= @catalogo.tipo.descripcion%></h4>
+     </div>
+
+     <div class="row"> <h3><strong class= "col-md-3">Categoría:</strong></h3>
+     
+
+     <% case @catalogo.categorizacion.to_i %>
+     <% when 1%>
+      <h4 class ="col-md-9">Biotecnología</h4>
+      <% when 2%>
+      <h4 class ="col-md-9">Calidad Educativa</h4>
+      <% when 3%>
+      <h4 class ="col-md-9">Ciencias del Ambiente</h4>
+      <% when 4%>
+      <h4 class ="col-md-9">Control y Automatización</h4>
+      <% when 5%>
+      <h4 class ="col-md-9">Diseño y Construcción</h4>
+      <% when 6%>
+      <h4 class ="col-md-9">Energía</h4>
+      <% when 7%>
+      <h4 class ="col-md-9">Ing. de Procesos</h4>
+      <% when 8%>
+      <h4 class ="col-md-9">Tecn. Agropecuaria</h4>
+      <% when 9%>
+      <h4 class ="col-md-9">TIC</h4>
+      <% else %>
+      <h4 class ="col-md-9">Null ingrese para categorizar su servicio</h4>
+      <%end %>
+    
+   
+     </div>
+
+  <div class="row"><h3> <strong class= "col-md-3">Infraestructura: </strong></h3>
+     <h4 class ="col-md-9"><%= @catalogo.infraestructura %></h4>
+     </div>
+ 
+  
+  <div class="row"><h3> <strong class= "col-md-3">Descripción: </strong></h3>
+     <h4 class ="col-md-9"><%= @catalogo.descripcion %></h4>
+     </div>
+ 
+  
+    <div class="row"><h3><strong class= "col-md-3">Resultados: </strong></h3>
+     <h4 class ="col-md-9"><%= @catalogo.resultados %></h4>
+     </div>
+
+
+  <div class="row"><h3><strong class= "col-md-3">Contacto: </strong></h3>
+   <h4 class ="col-md-9"> <%= @catalogo.informante %></h4>
+   </div>
+
+ 
+</div>
+
+</div>
+
+</div>
+
+</div>
+<% end %>
+
+<% else %>
+
+
+<div style="width:90%;margin:auto;position:relative;">
+
+  <div class="col-md-12">
+
+        <div class="panel panel-default">
+
+          <div class="panel-heading " style="height: 100%;"> 
+            <div class="container" style="width: 100%;">
+
+            <h1 class="panel-title" style="float: left;"> <%= @catalogo.nombre %> </h1>
+            <div style="float:right;margin-right:2%;width: 11%;">
+            <a href="javascript:history.back()" class="btn btn-primary btn-lg">Regresar</a>
+           </div>
+           </div>
+          </div>
+
+    <div class="panel-body">
+    <div class="row">
+        <h3> <strong class= "col-md-3">Entidad:</strong></h3>
+        <h4 class ="col-md-9"><%= @catalogo.entidad %></h4>
+</div>
+
+   <div class="row"> <h3><strong class= "col-md-3">Mercado: </strong></h3>
+   <h4 class ="col-md-9">  <%= @catalogo.mercado %></h4>
+ </div>
+  
+   <div class="row"> <h3><strong class= "col-md-3">Tipo: </strong></h3>
+     <h4 class ="col-md-9"><%= @catalogo.tipo.descripcion%></h4>
+     </div>
+
+     <div class="row"> <h3><strong class= "col-md-3">Categoría:</strong></h3>
+     <% case @catalogo.categorizacion.to_i %>
+     <% when 1%>
+      <h4 class ="col-md-9">Biotecnología</h4>
+      <% when 2%>
+      <h4 class ="col-md-9">Calidad Educativa</h4>
+      <% when 3%>
+      <h4 class ="col-md-9">Ciencias del Ambiente</h4>
+      <% when 4%>
+      <h4 class ="col-md-9">Controlo y Automatización</h4>
+      <% when 5%>
+      <h4 class ="col-md-9">Diseño y Construcción</h4>
+      <% when 6%>
+      <h4 class ="col-md-9">Energía</h4>
+      <% when 7%>
+      <h4 class ="col-md-9">Ing. de Procesos</h4>
+      <% when 8%>
+      <h4 class ="col-md-9">Tecn. Agropecuaria</h4>
+      <% when 9%>
+      <h4 class ="col-md-9">TIC</h4>
+      <% else %>
+      <h4 class ="col-md-9">No especificado</h4>
+      <%end %>
+     </div>
+
+  <div class="row"><h3> <strong class= "col-md-3">Infraestructura: </strong></h3>
+     <h4 class ="col-md-9"><%= @catalogo.infraestructura %></h4>
+     </div>
+ 
+  
+  <div class="row"><h3> <strong class= "col-md-3">Descripción: </strong></h3>
+     <h4 class ="col-md-9"><%= @catalogo.descripcion %></h4>
+     </div>
+ 
+  
+    <div class="row"><h3><strong class= "col-md-3">Resultados: </strong></h3>
+     <h4 class ="col-md-9"><%= @catalogo.resultados %></h4>
+     </div>
+
+
+  <div class="row"><h3><strong class= "col-md-3">Contacto: </strong></h3>
+   <h4 class ="col-md-9"> <%= @catalogo.informante %></h4>
+   </div>
+
+ 
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<% end %>
+</div>

@@ -1,0 +1,68 @@
+<% if current_user %>
+<% if @catalogo.errors.any? %>
+  <div style="margin:1em;" class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+  </button>
+<%end%>
+
+<%= form_for(@catalogo) do |f| %>
+  <% if @catalogo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@catalogo.errors.count, "Error") %> se encontraron al intentar insertar:</h2>
+
+      <ul>
+      <% @catalogo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% if @catalogo.errors.any? %>  
+  </div>
+<%end%>
+
+
+  <%= f.label :Nombre ,:style=>"width:10%;float:left;margin:0 0.3em;"%>
+  <%= f.text_field :nombre, class: "col-md-6 form-control nomc", placeholder: "Nombre del Servicio", :style=>"width:30%;float:left;"%>
+  
+  <%= f.label :Mercado ,:style=>"width:10%;float:left;margin:0 0.3em;" %>
+  <%= f.text_area :mercado, class: "form-control merca", placeholder: "Mercado del Servicio", :style=>"width:45%;float:left;"%><br><br><br><br>
+
+  <%=f.label :Area, :style=>"width:10%;float:left;margin:0 0.3em;"%>
+  <%= f.select :categorizacion , [['Biotecnología', 1], ['Calidad Educativa', 2], ['Ciencias del Ambiente', 3], ['Control y automatización', 4], ['Diseño y Construccion', 5], ['Energía', 6], ['Ing. de Procesos', 7], ['Tecno. Agropecuaria', 8], ['TIC', 9]], { prompt: "Seleccione la categoría para su servicio"}, {:class=>"form-control sele", :style=>"float:left;width:30%;"}%>
+
+ 
+
+  <%=f.label :Tipo, :style=>"width:10%;float:left;margin:0 0.3em;display: none;"%>
+  <%= f.text_field :tipo, :value => params[:id],class: "col-md-6 form-control tipo", placeholder: "Tipo del Servicio", :style=>"width:30%;float:left; display: none;"%><br><br><br><br>
+
+  <%= f.label :Infraestructura, :style=>"width:10%;float:left;margin:0 0.3em;" %>
+  <%= f.text_area :infraestructura, class: "form-control text_area1 infra", placeholder: "Infraestructura del Servicio",:style=>"width:40%;float:left;"%><br><br><br><br>
+ 
+  <%= f.label :Descripción,:style=>"width:10%;float:left;margin:0 0.3em;" %>
+  <%= f.text_area :descripcion, class: "form-control text_area1 descrip", placeholder: "Descripcion del Servicio", :style=>"width:40%;float:left;"%>
+  <br><br><br>
+
+  <%= f.label :Resultados,:style=>"width:10%;float:left;margin:0 0.3em;" %>
+  <%= f.text_area :resultados, class: "form-control resul", placeholder: "Posibles Resultados del Servicio", :style=>"width:40%;float:left;"%><br><br><br>
+    
+  <%= f.label :Fecha_de_Actualizacion,:style=>"width:10%;float:left;margin:0 0.3em;" %>
+  <% Time.now%>
+  <%= f.date_select :fregistro,  {}, {:class=>'form-control date-control fech', disabled: true ,:style=>"width:10%;float:left;"}%><br><br><br>
+    
+  <%= f.label :Informante,:style=>"width:10%;float:left;margin:0 0.3em;" %>
+  <%= f.text_field :informante, class: "form-control info", placeholder: "Responsable del Servicio", :style=>"width:15%;float:left;"%>
+   
+  <%= f.label :Entidad,:style=>"width:10%;float:left;margin:0 0.3em;" %>
+  <%= f.text_field :entidad, class: "form-control", value: current_user.siglas,disabled: true,  :style=>"width:10%;float:left;" %>
+   
+  <%= f.label :Autorizado,:style=>"width:10%;float:left;margin:0 0.3em;" %>
+  <%= f.collection_select :autorizado, Catalogo.select(:autorizado).distinct, :autorizado, :autorizado, {}, {:class=>'form-control', disabled: true,  :style=>"width:10%;float:left;"}%>
+  
+  <div class="actions" style="margin-left:20px;">
+    <%= f.submit "Guardar Servicio", :style => 'float:left; margin-left:20px;', :class=> "btn btn-default", :onclick => "return validacionc()" %>
+    <a href="javascript:history.back()" class="btn btn-primary btn-lg"  style="margin-left:20px;">Atrás</a>
+  </div>
+<% end %>
+<% end %>

@@ -1,0 +1,535 @@
+
+@import "bootstrap";
+.slider ul li{
+   text-decoration: none;
+   
+}
+.error{
+  background-color: #003485;
+  padding: 6px 6px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  margin-left: 1px;
+  margin-top: 0px;
+  position: absolute;
+}
+.error:before{
+  content: '';
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid transparent;
+  border-right: 8px solid #087DFA;
+  left: -15px;
+  position: absolute;
+  top: 5px;
+}
+hr {
+  border: 0; height: 1px; text-align: center; background-image: linear-gradient(left, #fff, #000, #fff);
+}
+body {
+   background-color: #e8e5e0;;
+   font-family: 'PT Sans Narrow','Roboto', sans-serif;
+   font-size: 1.6em;
+} 
+#contenedor {
+   background-color: #fff;
+   width: 80%;
+   margin: 0px auto 0px auto;
+}
+.margin-zero
+{
+  margin-left: 0%;
+  margin-right: 0%;
+  margin-top: 0%; 
+  margin-bottom: 0%;
+}
+.container{
+  width: 80%;
+  padding: 0;
+}
+
+header a{
+  position: relative;
+  color:#000;
+  list-style: none;
+  width: 30%;
+}
+header a:hover{
+  text-decoration: none;
+  color:#DBA901;
+}
+header {
+   text-align: center;
+   padding: 0 10px;
+}
+.contslider{
+   height: 200px;
+   background-color: #f1f1f1;
+   float: right;
+   width: 37%;
+}
+.logo {
+   float: left;
+   padding-left: 5px;
+   width: 16%;
+   overflow: auto;
+   margin :0;
+
+}
+.logo img {
+   width: 100%;
+   height: 100%;
+}
+
+header h2{
+   margin-top: 10px;
+   margin-left: 150px;
+   font-size: 2rem;
+}
+header h3{
+   margin-top: 10px;
+   margin-left: 150px;
+   font-size: 2rem;
+
+}
+/* responsive design */
+/* Por debajo de 950px */
+@media screen and (max-width: 950px){
+body {
+   font-size: 1.1em;
+} 
+.badge {
+
+}
+header a {
+  
+}
+}
+/* Por debajo de 700px */
+@media screen and (max-width: 700px){
+header h2{
+   margin-top: 10px;
+   margin-left: 100px;
+   font-size: 1.3rem;
+}
+header h3{
+   margin-top: 10px;
+   margin-left: 100px;
+   font-size: 1.3rem;
+
+}
+#contenedor{
+  width: 100%;
+}
+.container{
+  width: 100%;
+}
+}
+/* Por debajo de 400px */
+@media screen and (max-width: 400px){
+header h2{
+   margin-top: 10px;
+   margin-left: 20px;
+   font-size: 0.5rem;
+}
+header h3{
+   margin-top: 10px;
+   margin-left: 20px;
+   font-size: 0.5rem;
+
+}
+
+body {
+   font-size: 0.9em;
+} 
+}
+
+/* navbar ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc*/
+.navbar-default {
+    background-color: #003485;
+    border-color: #E7E7E7;
+    border-bottom: solid 2px #153C7B;
+}
+/* title */
+.navbar-default .navbar-brand {
+    color: #777;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #5E5E5E;
+}
+/* link */
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #333;
+    background-color: #2476FA;
+}
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #E7E7E7;
+}
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #D5D5D5;
+}
+/* caret */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+.navbar-default .navbar-nav > .open > a .caret, 
+.navbar-default .navbar-nav > .open > a:hover .caret, 
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* mobile version */
+.navbar-default .navbar-toggle {
+    border-color: #DDD;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #DDD;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #CCC;
+}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #fff;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+    }
+
+}
+/************************context menu*****************************/
+.dropdown-menu > li {
+  
+  width: 80%;
+}
+.dropdown-menu li a {
+  color: #555;
+  font-weight: bold;;
+}
+
+.nav a {
+   font-weight: bold;
+   color: #000;
+   text-decoration: none;
+}
+section {
+   margin: 0.5em;
+   background-color: #eeeeee;
+}
+
+section h1{
+   margin-top: 10px;
+   margin-left: 5px;
+   font-size: 3rem;
+}
+
+/* Por debajo de 700px */
+@media screen and (max-width: 700px){
+section h1{
+   margin-top: 10px;
+   margin-left: 5px;
+   font-size: 2rem;
+}
+}
+/* Por debajo de 400px */
+@media screen and (max-width: 400px){
+section h1{
+   margin-top: 10px;
+   margin-left: 150px;
+   font-size: 1rem;
+}
+}
+
+section .imagen_logo {
+   float: left;
+   width: auto;
+}
+section .descipcion p {
+   text-align: justify;
+}
+.clear {
+   clear: both;
+}
+
+
+
+.fcont{
+   background-color: #eeeeee;
+}
+.fnom{
+   width: 80%;
+   position: relative;
+   float: left;
+   margin: 5px 5px;
+}
+.fbtn{
+   float: right;
+   margin: 5px 10px;
+   margin-right: 30px;
+}
+.cnom p{
+   position: relative;
+}
+
+/**********slider *************/
+.contslider{
+  width: 100%;
+  
+}
+.slider{
+  position:relative;
+  background-color: #e8e5e0;
+  }
+.slid-btns_nav{
+  z-index:3;
+  position:absolute;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  top:50%;
+  left:0;
+  opacity:.2;
+  text-indent:-9999px;
+  overflow:hidden;
+  text-decoration:none;
+  height:61px;width:38px;
+  background:transparent url("../assets/themes.gif") no-repeat left top;
+  margin-top:-30px;
+  -webkit-transition:opacity .3s;
+  -moz-transition:opacity .3s;
+  -ms-transition:opacity .3s;
+  -o-transition:opacity .3s;
+  transition:opacity .3s;
+}
+.slid-btns_nav:hover{opacity:.4}
+.slid-btns_navactive{opacity:1}
+.slid-btns_nav.next{left:45.7%;background-position:right top;right:0}
+.slid-btns_navfocus{outline:none}
+.slid-btns .caption{
+  display:block;
+  position:absolute;
+  z-index:2;
+  text-align:center;
+  color:#fafafa;
+  width:60%;
+  font-size:20px;
+  left:4  0%;
+  right:20%;
+  top:25%;
+  margin:0;
+  max-width:none;
+  text-shadow:0 1px 10px rgba(0,0,0,0.85);
+}
+.slid-btns .caption h3{
+  background:rgba(2,191,119,0.75);
+  display:inline;
+  color:#fff;
+  padding:.5em .8em;
+  text-shadow:0 1px 3px rgba(0,0,0,0.4);
+  font-size:30px;
+  font-weight:400;
+  text-transform:uppercase;
+}
+.rslides {
+  position: relative;
+  list-style: none;  
+  width: 89%;
+  min-height: 240px;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {  
+  position: absolute;
+  display: none;
+  width: 100%;
+  min-height: 240px;
+  left: 0;
+  top: 0;
+  background-size: cover !important;
+  background-position: center !important;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+}
+
+
+
+
+
+
+/************fecha ***********/
+.date-control{
+  width: 20%;
+}
+
+/*Alejandro toco todo esto*/
+div.imageback
+{
+  background-image: url("panal.png");
+  background-size: contain;
+  background-position: right;
+  background-repeat: repeat-y;
+  padding-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+div.conten{
+  
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 5px 5px #555858;
+  background-color: #003485;
+  -webkit-transition:box-shadow .4s;
+  -webkit-transition:background-color .7s;
+
+}
+div.conten:hover p.sas
+{
+  font-size: 1.2em;
+}
+div.conten:hover
+{
+ 
+ box-shadow: 5px 5px  #273746;
+}
+div.conten:active
+{
+box-shadow:-5px -5px 0px 1px #003485;
+background-color: #555858;
+}
+
+
+p.sas
+{
+  font-size: 1em;
+  color:white;
+  text-align: center;
+
+}
+
+/*Botones de Alej*/
+
+
+.btn-primario {
+  color: #fff;
+  background-color: #003485;
+  border-color: #357ebd;
+}
+
+.btn-primario:hover, .btn-primario:focus, .btn-primario:active, .btn-primario.active, .open > .btn-primario.dropdown-toggle {
+  color: #fff;
+  background-color: #0174DF;
+  border-color: #285e8e;
+}
+/* tuma preba aaron quizo hacer esto xd xd*/
+
+.card-container {
+  cursor: pointer;
+  height: 150px;
+  perspective: 600;
+  position: relative;
+  width: 150px;
+}
+.card {
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+  width: 100%;
+}
+.card:hover {
+  transform: rotateY(180deg);
+}
+.card .side {
+  backface-visibility: hidden;
+  border-radius: 6px;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+}
+.card .back {
+  background: #eaeaed;
+  color: #0087cc;
+  line-height: 150px;
+  text-align: center;
+  transform: rotateY(180deg);
+}
+
+.biotecnologia{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfZOJdhAMQ110AL8ATehOWzTU6dSQByO5QdFij92QLjUp8ieG1Mw");
+    background-size: 100% 100%;
+}
+
+.energia{
+    background-image: url("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQBGyk2NmGIRSQ9IjG8zgCfPB8zw2QBQ2Ijqql4ZKjUbQJwWeLq");
+    background-size: 100% 100%;
+}
+
+.tic{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVYe7K--WvKoMpBE_6MmUC9Vct-A8HWbiK1G7vKJz9S_rIvz7p7w");
+    background-size: 100% 100%;
+}
+
+.ciencia{
+    background-image: url("http://nnsinaloa.com/media/noticias/ENERGIA_9RKJixV.jpg");
+    background-size: 100% 100%;
+}
+
+.control{
+    background-image: url("http://cdn2.hubspot.net/hubfs/136661/2-Images/_Recursos_Graficos_Ilustraciones/automatizacion-del-marketing-o-marketing-automation.jpg?t=1431351302220");
+    background-size: 100% 100%;
+}
+
+.diseño{
+    background-image: url("http://www.asocem.org.pe/archivo/files/construccion050815.jpg");
+    background-size: 100% 100%;
+}
+
+.tecagop{
+    background-image: url("http://www.copaipa.org.ar/wp-content/uploads/2016/07/Productos-agropecuarios.jpg");
+    background-size: 100% 100%;
+}
+
+.proceso{
+    background-image: url("http://4.bp.blogspot.com/-kbFbRpoGO7k/T1MV3ZioW9I/AAAAAAAAABo/YZDCn3Zw_0U/s1600/ingenieriaI3.jpg");
+    background-size: 100% 100%;
+}
+
+.cadec{
+    background-image: url("https://antonioperezesclarin.files.wordpress.com/2013/11/calidad-educativa.png");
+    background-size: 100% 100%;
+}
+

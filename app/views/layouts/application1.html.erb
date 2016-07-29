@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VRID | UNI</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'v.png' %>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   
+</head>
+<body>
+
+<script>
+    $(function() {
+      $("#slider-home").responsiveSlides({
+        speed:500,
+        nav:true,
+        namespace: 'slid-btns',
+        pause:false
+      });
+    });
+</script>
+<div id="contenedor" >
+   <header style="height: 20%;overflow:auto;" >
+
+      <%= image_tag "logo1.png", :class => "logo", :style => ""%>
+
+    <div class="logo1">
+      <!-- <%= image_tag "33uni.jpg"%> -->
+    </div>
+    
+    <!--<%= link_to ">  UNI", "http://www.uni.edu.ni",:style=>"",target: '_blank'%>
+    <%= link_to ">  UNI", "http://www.uni.edu.ni",:style=>"",target: '_blank'%>
+    -->
+    <%= image_tag "panal.png",:style => "margin-left:-6.4%;position:absolute;float:0px;width:40%;"%>
+    <div>
+    <div style="float:right;margin: 1.2em 0.5em 0em 1em;">
+    <%= link_to "> CONSEJO CIENTÍFICO", "http://www.uni.edu.ni/Investigacion/Consejo_Cientifico",:style=>"width:100%",class: "btn btn-default btn-sm",target: '_blank'%></br>
+    <%= link_to "> CONVOCATORIAS", "http://www.uni.edu.ni/Investigacion/Convocatorias",:style=>"width:100%",class: "btn btn-default btn-sm",target: '_blank'%>
+    </div>
+    <div style="float:right;margin: 0.2em 0.3em 0 0;">
+      <%= link_to "> UNI", "http://www.uni.edu.ni",:style=>"width:100%",class: "btn btn-default btn-sm",target: '_blank'%></br>
+    <%= link_to "> VRID", "http://www.uni.edu.ni/Investigacion/VRID",:style=>"width:100%",class: "btn btn-default btn-sm",target: '_blank'%></br>
+    <%= link_to "> DI", "http://www.uni.edu.ni/Investigacion/DI",:style=>"width:100%",class: "btn btn-default btn-sm",target: '_blank'%></br>
+    
+    </div>
+    
+    </div>
+    </header>
+
+
+<% if current_user %>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "INICIO", :controller => "index", :action => "inicio" %></li>
+        <li style="padding-right:37px;"><%= link_to "CATALOGOS SERVICIOS", :controller => "catalogos", :action => "index" %>  <span class="badge" style="float:right; width:2.8em;position:absolute; top:13px; left:160px;"><%= Catalogo.count %></span><span class="sr-only">(current)</span></li>
+        <li style="padding-right:37px;"><%= link_to "CONVENIOS", :action => "index", :controller => "convenios" %> <span class="badge" style="float:right; width:2.8em;position:absolute; top:13px; left:101px;"><%= Convenio.count %></span></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROYECTOS <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li style="float:left;"> <%= link_to "Ingresa tu Proyecto", :controller => "proyectos", :action => "new"%> </li>
+            <li style="float:right; width:19%;"><span class="glyphicon glyphicon-plus" aria-hidden="true" style="float:right; margin:0.4em 0.5em;"></span></li>
+            <li style="float:left;"><%= link_to "Listar Proyectos", :controller => "proyectos", :action => "index"%></li>
+            <li style="float:right; width:1.7em;"><span class="badge badge-info"><%= Proyecto.count %></span></li>
+            
+          </ul>
+          <li style="float:left;position:absulute;"><%= link_to "LOG OUT",:action => "destroy", :controller => "sessions"  %></li>
+          <p class="navbar-text navbar-right" style="font-family:'roboto';float:right;font-weight: bold;;color:#fff;">¡HOLA <%= current_user.siglas %>!</p>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<% else %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "INICIO", :controller => "index", :action => "inicio" %></li>
+        <li style="padding-right:37px;"><%= link_to "CATALOGO SERVICIOS", :controller => "catalogos", :action => "index" %>  <span class="badge" style="float:right; width:2.8em;position:absolute; top:13px; left:160px;"><%= Catalogo.count %></span><span class="sr-only">(current)</span></li>
+        <li style="padding-right:37px;"><%= link_to "CONVENIOS", :action => "index", :controller => "convenios" %> <span class="badge" style="float:right; width:2.8em;position:absolute; top:13px; left:101px;"><%= Convenio.count %></span></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROYECTOS <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li style="float:left;"> <%= link_to "Ingresa tu Proyecto", :controller => "proyectos", :action => "new"%> </li>
+            <li style="float:right; width:19%;"><span class="glyphicon glyphicon-plus" aria-hidden="true" style="float:right; margin:0.4em 0.5em;"></span></li>
+            
+            
+          </ul>
+          <li style="float:left;position:absulute;"><%= link_to "LOG IN",:action => "new", :controller => "sessions"  %></li>
+          
+
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+    
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<% end %>
+
+</div>
+<% if @nav == "inicio" %>
+<div class="container" style="width:100%;">
+
+<div class="contslider">  
+  <div class="slider" >
+      <ul class="rslides" id="slider-home">
+        <li>
+           <div ><%= image_tag "1.jpg"%></div>
+          <div class="caption">
+          <h3 class="wow">This is a caption</h3>
+            <%= link_to  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam pariatur maxime odio eaque! Quod delectus natus corrupti atque officiis.", "http://www.conicyt.gob.ni/" %><p class="wow"></p> 
+          </div>
+        </li>
+        <li>
+           <div ><%= image_tag "2.jpg"%></div>
+           <div class="caption">
+            <h3 class="wow">This is a caption</h3>
+            <p class="wow">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam pariatur maxime odio eaque! Quod delectus natus corrupti atque officiis.</p>
+          </div>
+        </li>
+        <li>
+           <div ><%= image_tag "7.jpg"%></div>
+          <div class="caption">
+            <h3 class="wow">This is a caption</h3>
+            <p class="wow">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam pariatur maxime odio eaque! Quod delectus natus corrupti atque officiis.</p>
+          </div>
+        </li>
+        <li>
+           <div ><%= image_tag "2.jpg"%></div>
+           <div class="caption">
+            <h3 class="wow">This is a caption</h3>
+            <p class="wow">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam pariatur maxime odio eaque! Quod delectus natus corrupti atque officiis.</p>
+          </div>
+        </li>
+      </ul>
+  </div>
+</div>
+<%end%>
+
+    
+</div>
+
+
+<div class="container" style="margin-top:3%;">
+
+<div class="container" style="float: left;width:80%;margin-right:0%;">
+
+<div class="container" style="float: left;width:100%;">
+
+
+
+<% if notice %>
+    <p  class="alert alert-success alert-dismissible"><%= notice %><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger alert-dismissible"><%= alert %><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></p>
+  <% end %>
+
+  <section> 
+   <%= yield %>
+  </section>
+
+
+
+
+</div>
+
+
+<div class="container" style="float: left;width:100%;margin-left:5%">
+  
+
+<div class ="container"style="position:relative;width:100%;margin-top:5%">
+
+<div class="panel panel-primary" style="margin:1.5em 0;position:relative;width:20%;float:left;margin-left:1em;">
+<div class="panel-heading" style="text-align:center;">CPML</div>
+<%= link_to image_tag('cpml.jpg', :style =>"width:100%;height:5em;" ,:alt => 'CPML'), "http://www.pml.org.ni/", target: '_blank' %> 
+ </div>
+
+<div class="panel panel-primary" style="margin:1.5em 0;position:relative;width:20%;float:left;margin-left:1em;">
+<div class="panel-heading" style="text-align:center;">PIENSA</div>
+<%= link_to image_tag('piensa.jpg', :style =>"width:100%;height:5em;" ,:alt => 'PIENSA'), "http://www.piensa.uni.edu.ni/", target: '_blank' %> 
+ </div>
+
+<div class="panel panel-primary" style="margin:1.5em 0;position:relative;width:20%;float:left;margin-left:1em;">
+<div class="panel-heading" style="text-align:center;">FODMU</div>
+<%= link_to image_tag('fodmu.jpg', :style =>"width:100%;height:5em;" ,:alt => 'FODMU'), "http://fodmu.uni.edu.ni/", target: '_blank' %> 
+ </div>
+
+ <div class="panel panel-primary" style="margin:1.5em 0;position:relative;width:20%;float:left;margin-left:1em;">
+<div class="panel-heading" style="text-align:center;">PVIT</div>
+<%= link_to image_tag('pvit.jpg', :style =>"width:100%;height:5em;" ,:alt => 'PVIT'), "http://www.pvit.uni.edu.ni/", target: '_blank' %>
+ </div>
+
+
+<div class="panel panel-primary" style="margin:1.5em 0;position:relative;width:20%;float:left;margin-left:1em;">
+<div class="panel-heading" style="text-align:center;">CONACYT</div>
+<%= link_to image_tag('Logo-Web.gif', :style =>"width:100%;height:5em;" ,:alt => 'Conacyt'), "http://www.cyted.org/es/Convocatoria2016", target: '_blank' %> 
+ </div>
+
+<div class="panel panel-primary" style="margin:1.5em 0;position:relative;width:20%;float:left;margin-left:1em;">
+<div class="panel-heading" style="text-align:center;">ENERGIAS 4E</div>
+<%= link_to image_tag('logo4e.jpg', :style =>"width:100%;height:5em;" ,:alt => 'Conacyt'), "http://energias4e.com/", target: '_blank' %> 
+ </div>
+
+<div class="panel panel-primary" style="margin:1.5em 0;position:relative;width:20%;float:left;margin-left:1em;">
+<div class="panel-heading" style="text-align:center;">RACI</div>
+<%= link_to image_tag('logo-raci.jpg', :style =>"width:100%;height:5em;" ,:alt => 'Conacyt'), "http://www.raci.org.ar/", target: '_blank' %> 
+</div>
+
+<div class="panel panel-primary" style="margin:1.5em 0;position:relative;width:20%;float:left;margin-left:1em;">
+<div class="panel-heading" style="text-align:center;">PROINNOVA</div>
+<%= link_to image_tag('Logo_proinova.jpg', :style =>"width:100%;height:5em;" ,:alt => 'Conacyt'), "http://www.proinnova.co.cr/contenido/", target: '_blank' %> 
+ </div>
+ 
+</div>
+
+
+
+</div>
+  
+</div>
+  
+<div class="conteiner" style="float: right;width:20%;">
+
+<div class="panel panel-default" style="margin-top:10px;text-align:center;">
+
+<div class="container">
+  <div class="panel-heading">
+    <h3 class="panel-title">Enlaces de interes</h3>
+  </div>
+  <div class="panel-body">
+  
+    <%= link_to image_tag('conicyt.png', :style =>"width:100%;" ,:alt => 'Sitio conicyt'),"http://www.conicyt.gob.ni/", target: '_blank' %> 
+    <p><strong>Conicyt Nicaragua</strong></p>
+  
+  </div>
+</div>
+
+</div>
+
+<div class="panel panel-default" style="margin-top:10px;text-align:center;">
+
+
+
+
+  <div class="panel-heading" style="width:100%;">
+          <h3 class="panel-title">Becas Externas</h3>
+        </div>
+        <div class="panel-body" style="width:100%;">
+
+          <div>
+            <%= link_to image_tag('erasmus.jpg', :style =>"width:100%;" ,:alt => 'Erasmus'),"http://ec.europa.eu/programmes/erasmus-plus/index_es.htm", target: '_blank' %> 
+            <p><strong>Erasmus</strong></p>
+          </div>
+
+           <div>
+            <%= link_to image_tag('educationusa.png', :style =>"width:90%;" ,:alt => 'Education USA'), "https://educationusa.state.gov/", target: '_blank' %> 
+            <p><strong>Education USA</strong></p>
+          </div>
+       
+        <div>
+            <%= link_to image_tag('campusfrance.png', :style =>"width:90%;" ,:alt => 'Campus France'), "http://www.campusfrance.org/es", target: '_blank' %> 
+            <p><strong>Campus France</strong></p>
+          </div>
+
+        <div>
+            <%= link_to image_tag('chevening.png', :style =>"width:90%;" ,:alt => 'Chevening'), "http://www.chevening.org/", target: '_blank' %> 
+            <p><strong>Chevening</strong></p>
+          </div>
+
+        <div>
+            <%= link_to image_tag('oea.jpg', :style =>"width:90%;" ,:alt => 'Organizacion de estados Americanos'), "http://www.oas.org/es/becas/", target: '_blank' %> 
+            <p><strong>Organizacion de estados Americanos</strong></p>
+          </div>
+
+        <div>
+            <%= link_to image_tag('conacyt.png', :style =>"width:90%;" ,:alt => 'Conacyt'), "http://www.conacyt.mx/", target: '_blank' %> 
+            <p><strong>Conacyt</strong></p>
+          </div>
+
+        </div>
+
+</div>
+
+  
+</div>
+
+
+</div>
+
+
+<div class="container"  style="margin-top:2%;" >
+<h2 style="width:30%;margin-left:35%">Base de Datos de Patentes</h2>
+
+ <div class="container" style="margin-top:1%;">
+
+
+<div class="panel panel-primary" style="margin:1.5em 0;position:relative;width:18%;float:left;margin-left:1em;">
+<div class="panel-heading" style="text-align:center;">PATENTSCOPE</div>
+<%= link_to image_tag('wipo.gif', :style =>"width:100%;height:5em;" ,:alt => 'WIPO'), "http://www.wipo.int/portal/es/", target: '_blank' %> 
+</div>
+
+<div class="panel panel-primary" style="margin:1.5em 0;position:relative;width:18%;float:left;margin-left:1em;">
+<div class="panel-heading" style="text-align:center;">OPTI</div>
+<%= link_to image_tag('opti.gif', :style =>"width:100%;height:5em;" ,:alt => 'Conacyt'), "http://www.opti.org/", target: '_blank' %>
+  </div>
+
+  <div class="panel panel-primary" style="margin:1.5em 0;position:relative;width:18%;float:left;margin-left:1em;">
+<div class="panel-heading" style="text-align:center;">GOOGLE PATENTS</div>
+<%= link_to image_tag('patents.png', :style =>"width:100%;height:5em;" ,:alt => 'WIPO'), "http://www.wipo.int/portal/es/", target: '_blank' %> 
+  </div>
+  
+
+<div class="panel panel-primary" style="margin:1.5em 0;position:relative;width:18%;float:left;margin-left:1em;">
+<div class="panel-heading" style="text-align:center;">ESPACENET</div>
+<%= link_to image_tag('espacenet.jpg', :style =>"width:100%;height:5em;" ,:alt => 'WIPO'), "http://lp.espacenet.com/?locale=es_LP&view=paginaintermedia", target: '_blank' %> 
+  </div>
+
+  <div class="panel panel-primary" style="margin:1.5em 0;position:relative;width:18%;float:left;margin-left:1em;">
+<div class="panel-heading" style="text-align:center;">LENS</div>
+<%= link_to image_tag('lens.png', :style =>"width:100%;height:5em;" ,:alt => 'WIPO'), "https://www.lens.org/lens/?locale=es", target: '_blank' %> 
+  </div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+</body>
+
+
+<footer class="primary-footer" style="background-color: #003485";>
+
+
+
+
+    <div class="container" style="text-align: center;color: #FFFFFF;">
+      <small>&copy; 2016 Programa de acompañamiento a proyectos. Desarrollado por DT. <a href="building-custom-context-menu-javascript" target="_blank">See article </a></small>
+    </div>
+  </footer>
+  <script>  
+  new WOW().init();    
+</script>
+</html>

@@ -1,0 +1,8 @@
+<% @nav = "proyecto" %><% if current_user %>
+<h1 style="margin: 0.3em 2em;">Ediar Proyecto</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @proyecto %> |<% else %> <h1>Acceso denegado :)</h1>
+<%= link_to 'Back', proyectos_path %>
+<% end %> 

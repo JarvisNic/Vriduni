@@ -1,0 +1,9 @@
+<% @nav = "convenio" %>
+<% if current_user and current_user.tipo.to_i == 2 %>
+<h1 style="margin: 0.3em 2em;">Editar Convenio</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Mostrar', @convenio, style: "margin:20px 0 0 10px;",class: "btn btn-default" %>    <% else %> <h1>Acceso denegado :)</h1>
+<%= link_to 'Atras', convenios_path,class: "btn btn-default", style: "margin:20px 0 0 0;" %>
+<% end %> 

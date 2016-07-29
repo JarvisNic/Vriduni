@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  tutor: MyString
+  objetivo: MyText
+  desarrolladores: MyString
+  facultad: MyString
+  categoria: MyString
+  area: MyString
+  responsable: MyString
+  visit_count: 1
+
+two:
+  nombre: MyString
+  tutor: MyString
+  objetivo: MyText
+  desarrolladores: MyString
+  facultad: MyString
+  categoria: MyString
+  area: MyString
+  responsable: MyString
+  visit_count: 1

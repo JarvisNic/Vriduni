@@ -1,0 +1,45 @@
+<% @nav= "student" %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @student.n_carnet %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @student.name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @student.last_name %>
+</p>
+
+<p>
+  <strong>Cel:</strong>
+  <%= @student.cel %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @student.tel %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @student.email %>
+</p>
+
+<p>
+  <strong>Facultad:</strong>
+  <%= @student.facultad %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @student.proyecto.nombre %>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', proyectos_path %>

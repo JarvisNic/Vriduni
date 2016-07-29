@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UNI | VRID</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'v.png' %>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   
+</head>
+<body>
+
+<script>
+    $(function() {
+      $("#slider-home").responsiveSlides({
+        speed:1000,
+        nav:true,
+        namespace: 'slid-btns',
+        pause:false
+      });
+    });
+</script>
+<div class="margin-zero" >
+   <header style="overflow:auto;padding-right: 0;width:100%;background-color: #FFFFFF;" >
+
+
+<div class="container imageback" style="width:100%;padding-bottom: 0px;">
+
+<%= image_tag "logo1.png", :class => "logo", :style => "margin-top:1%;margin-bottom:0.6%;float:left;he;"%>
+
+
+<div  style="float:right; width:40%;">
+
+<div style="width:40%;float:right;margin-right: 5%;margin-top: 3%;margin-left:0%">
+
+<div class="conten"  style="margin-top: 10%;margin-bottom: 10%;">
+
+<p class="sas">
+  <%= link_to "> CONVOCATORIAS", "http://www.uni.edu.ni/Investigacion/Convocatorias",target: '_blank',:style => "color: white;"%>
+</p>
+
+</div>
+
+<div class="conten"  style="margin-top: 10%;margin-bottom: 1%;">
+<p class="sas">
+  <%= link_to "> CONSEJO CIENTÍFICO", "http://www.uni.edu.ni/Investigacion/Consejo_Cientifico",target: '_blank',:style => "color: white;"%>
+</p>
+
+</div>
+
+</div>
+
+<div style="width:40%;margin-bottom:0;padding-bottom: 0;margin-left:25%;margin-top: 4%;margin-right:0%">
+
+<div class="conten"  style="width:40%;margin-top:1%;">
+<p class="sas">
+  <%= link_to "> UNI", "http://www.uni.edu.ni",target: '_blank',:style => "color: white;"%>
+</p>
+
+</div>
+<div class="conten"  style="width:40%;">
+<p class="sas">
+  <%= link_to "> VRID", "http://www.uni.edu.ni/Investigacion/VRID",target: '_blank',:style => "color: white;"%>
+</p>
+
+</div>
+<div class="conten" style="width:40%;margin-bottom:0;">
+<p class="sas">
+  <%= link_to "> DI", "http://www.uni.edu.ni/Investigacion/DI",target: '_blank',:style => "color: white;"%>
+</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+    
+    </header>
+
+
+<% if current_user %>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "INICIO", :controller => "index", :action => "inicio" %></li>
+        <li style="padding-right:37px;"><%= link_to "CATALOGOS SERVICIOS", :controller => "catalogos", :action => "index" %>  <span class="badge" style="float:right; width:2.8em;position:absolute; top:13px; left:160px;"><%= Catalogo.count %></span><span class="sr-only">(current)</span></li>
+        <li style="padding-right:37px;"><%= link_to "CONVENIOS", :action => "index", :controller => "convenios" %> <span class="badge" style="float:right; width:2.8em;position:absolute; top:13px; left:101px;"><%= Convenio.count %></span></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROYECTOS <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li style="float:left;"> <%= link_to "Ingresa tu Proyecto", :controller => "proyectos", :action => "new"%> </li>
+            <li style="float:right; width:19%;"><span class="glyphicon glyphicon-plus" aria-hidden="true" style="float:right; margin:0.4em 0.5em;"></span></li>
+            <li style="float:left;"><%= link_to "Listar Proyectos", :controller => "proyectos", :action => "index"%></li>
+            <li style="float:right; width:1.7em;"><span class="badge badge-info"><%= Proyecto.count %></span></li>
+            
+          </ul>
+          <li style="float:left;position:absulute;"><%= link_to "LOG OUT",:action => "destroy", :controller => "sessions"  %></li>
+          <p class="navbar-text navbar-right" style="font-family:'roboto';float:right;font-weight: bold;;color:#fff;">¡HOLA <%= current_user.siglas %>!</p>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<% else %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "INICIO", :controller => "index", :action => "inicio" %></li>
+        <li style="padding-right:37px;"><%= link_to "CATALOGO SERVICIOS", :controller => "catalogos", :action => "index" %>  <span class="badge" style="float:right; width:2.8em;position:absolute; top:13px; left:160px;"><%= Catalogo.count %></span><span class="sr-only">(current)</span></li>
+        <li style="padding-right:37px;"><%= link_to "CONVENIOS", :action => "index", :controller => "convenios" %> <span class="badge" style="float:right; width:2.8em;position:absolute; top:13px; left:101px;"><%= Convenio.count %></span></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROYECTOS <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li style="float:left;"> <%= link_to "Ingresa tu Proyecto", :controller => "proyectos", :action => "new"%> </li>
+            <li style="float:right; width:19%;"><span class="glyphicon glyphicon-plus" aria-hidden="true" style="float:right; margin:0.4em 0.5em;"></span></li>
+            
+            
+          </ul>
+          <li style="float:left;position:absulute;"><%= link_to "LOG IN",:action => "new", :controller => "sessions"  %></li>
+          
+
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+    
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<% end %>
+
+</div>
+
+
+
+<% if @nav == "inicio" %>
+<div class="container" style="width:100%;margin-left: 5%;">
+
+<div class="contslider">  
+  <div class="slider"  >
+      <ul class="rslides" id="slider-home" >
+        
+        <li style="width: 62.3%;">
+           <div > <%= image_tag "conicit1.png"%> </div>
+           <div style="float: left;;width:74%;color: #003485;background-color:  #FFFFFF;margin-left: 89%;">
+          <h1 style="text-align: left;margin-left:2%;">Propiedad Intelectual… ¿Por qué y para qué?</h1>
+            <h3 style="text-align: left;width: 80%;height:112px;margin-left:2%;">
+            <%= link_to  "Investigadores y emprendedores fueron parte de la conferencia acerca de las formas de protección de la propiedad intelectuall, ya sea patentes y .... Ver mas", "http://www.uni.edu.ni/Articulo/Ver/Propiedad-Intelectual-Por-que-y-para-que", {:style => 'color: #003485'} %>
+            </h3> 
+          </div>
+        </li>
+
+        <li style="width: 62.3%;">
+           <div style="width:10%"> <%= image_tag "aguatec.png"%> </div>
+           <div style="float: left;;width:74%;color: #003485;background-color:  #FFFFFF;margin-left: 89%;">
+          <h1 style="text-align: left;margin-left:2%;">Aprovechar agua subterránea</h1>
+            <h3 style="text-align: left;width: 80%;height:154px;margin-left:2%;">
+            <%= link_to  "Estudiantes de Ingeniería Civil e Ingeniería Agrícola participaron de la conferencia “El aprovechamiento del agua subterránea, conociendo el recurso” impartida por.... Ver mas", "http://www.uni.edu.ni/Articulo/Ver/Propiedad-Intelectual-Por-que-y-para-que", {:style => 'color: #003485'} %>
+            </h3> 
+          </div>
+        </li>
+        
+        
+      </ul>
+  </div>
+</div>
+</div>
+
+<%end%>
+
+    
+
+
+
+
+
+
+
+<% if notice %>
+    <p  class="alert alert-success alert-dismissible"><%= notice %><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger alert-dismissible"><%= alert %><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></p>
+  <% end %>
+
+  <section> 
+   <%= yield %>
+  </section>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+<footer class="primary-footer" style="color: #FFFFFF;">
+
+    <div class="container" style="text-align: center;width:100%;background-color:#003485">
+      <small>&copy; 2016 Programa de acompañamiento a proyectos. Desarrollado por DT. <a href="building-custom-context-menu-javascript" target="_blank">See article </a></small>
+    </div>
+  </footer>
+  <script>  
+  new WOW().init();    
+</script>
+</html>

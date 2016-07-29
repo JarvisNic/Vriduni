@@ -1,0 +1,13 @@
+
+<% @nav = "usuario" %>
+<% if current_user %>
+<h1  style="margin: 0.3em 2em;">Nuevo Usuario</h1>
+
+<%= render 'form' %>
+</br>
+<% else %> 
+<h1>Acceso denegado :)</h1>
+<div style="padding-left:20px;">
+<%= link_to 'Volver', root_path ,class: "btn btn-default"%>
+</div>
+<% end %> 

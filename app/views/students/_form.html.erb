@@ -1,0 +1,60 @@
+<%= form_for(@student) do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% @student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ </br>
+  <div class="field">
+    <%= f.label :Identificación,:style=>"width:15%;float:left;margin:0.3em ;" %>
+    <%= f.text_field :n_carnet, class: "form-control", placeholder: "Cédula o carnet",:style=>"float:left;width:20%;margin: 0" %>
+   
+  </div>
+  <div class="field">
+<%= f.label :Nombre,:style=>"width:8%;float:left;margin:0.3em ;" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Juan",:style=>"float:left;width:20%;margin: 0;" %>
+   
+  </div>
+  <div class="field">
+  <%= f.label :Apellido,:style=>"width:8%;float:left;margin: 0.3em " %>
+    <%= f.text_field :last_name, class: "form-control", placeholder: "García",:style=>"float:left;width:20%;margin: 0;" %>  
+    </div>
+  <div class="field">
+    <%= f.label :Facultad,:style=>"width:15%;float:left;margin: 0.3em" %>
+    <%= f.select :facultad, [["FARQ"], ["FIQ"], ["FEC"], ["FTC"],["FTI"],["FCSYS"]  ], {prompt: "Seleccionar Facultad"}, {:class=>'form-control', style: "width:20%;margin-right:0px;float:left;"} %>
+  </div>
+  <div class="field">
+  <%= f.label :Telefono,:style=>"width:8%;float:left;margin: 0.3em " %>
+    <%= f.text_field :tel, class: "form-control", placeholder: "2256-8569",:style=>"float:left;width:20%;margin: 0;" %>  
+   </div>
+  <div class="field">
+  <%= f.label :Celular,:style=>"width:8%;float:left;margin: 0.3em " %>
+    <%= f.text_field :cel, class: "form-control", placeholder: "8886-1234",:style=>"float:left;width:20%;margin: 0;" %>  
+  </div>
+
+  <div class="field">
+  <%= f.label :Email,:style=>"width:15%;float:left;margin: 0.3em " %>
+    <%= f.text_field :email, class: "form-control", placeholder: "student@uni.edu.ni",:style=>"float:left;width:20%;margin: 0;" %>  
+  </div>
+  <div class="field">
+  <%= f.label :Formación,:style=>"width:8%;float:left;margin: 0.3em " %>
+   <%= f.collection_select :formacion, Student.select(:formacion).distinct.where.not(formacion: ''), :formacion, :formacion, {prompt: "Seleccionar Formacion"}, {:class=>'form-control', style: "width:20%;margin-right:0px;float:left;"} %>  
+  </div>
+  <div class="field">
+  <%= f.label :Experiencia,:style=>"width:8%;float:left;margin: 0.3em " %>
+    <%= f.text_field :experiencia, class: "form-control", placeholder: "8886-1234",:style=>"float:left;width:20%;margin: 0;" %>  
+  </div>
+  </br></br></br></br></br>
+  <div class="field" style="display:none;">
+    <%= f.text_field :proyecto_id, value: params[:id]  %>
+  </div>
+  <div class="actions"></br>
+    <%= f.submit "Registrar Estudiante", class: "btn btn-primary btn-md",:style=>"float:none;margin: 0 0.5em;"%></br></br>
+  </div>
+<% end %>

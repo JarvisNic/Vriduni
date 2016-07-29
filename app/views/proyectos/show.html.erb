@@ -1,0 +1,69 @@
+<% @nav = "proyecto" %>
+<div style="width:100%;">
+<table class="table table-bordered table-hover"  >
+  <tr>
+    <td><strong>Nombre:</strong></td>
+    <td><%= @proyecto.nombre %></td>
+ </tr>
+  <tr>
+
+
+    <td><strong>Fecha Inicio:</strong></td>
+    <td><%= @proyecto.fecha_inicio %></td>
+
+ </tr>
+  <tr>
+
+
+    <td><strong>Fecha Fin:</strong></td>
+    <td><%= @proyecto.fecha_fin %></td>
+
+ </tr>
+  <tr>
+    <td><strong>Objetivo:</strong></td>
+    <td><%= @proyecto.objetivo_general %></td>
+
+ </tr>
+  <tr>
+    <td><strong>Tipo Estudio:</strong></td>
+    <td><%= @proyecto.tipo_estudio %></td>
+
+ </tr>
+  <tr>
+
+    <td><strong>Linea:</strong> </td>
+    <td><%= @proyecto.linea %></td>
+
+ </tr>
+  <tr>
+
+    <td><strong>Area:</strong></td>
+    <td><%= @proyecto.area %></td>
+
+ </tr>
+</table>
+<table class="table table-bordered table-hover" >
+  <tr>
+    <td>
+      <strong> Desarrolladores:</strong>
+    </td>
+    <td></td>
+    <% @proyecto.students.each do |student| %>
+    </tr>
+  <tr>
+    <td><strong>Nombre:</strong></td>
+    <td><%= student.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Carnet:</strong></td>
+    <td><%= student.n_carnet %></td>
+    </tr><tr>
+    <td><strong>Facultad:</strong></td>
+    <td><%= student.facultad %></td></tr>
+    <% @stud = student.proyecto_id %>
+    <% end %>
+</table>
+<% if current_user %>
+<%= link_to 'Edit', edit_proyecto_path(@proyecto) , class: "btn btn-default" %> |
+<%end%>
+<%= link_to 'Back', proyectos_path ,class: "btn btn-default"%>

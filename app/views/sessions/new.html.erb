@@ -1,0 +1,41 @@
+<% @nav = "sesion" %>
+
+
+<%= form_tag sessions_path do %>
+
+<div  class="well well-lg" style="border-color: #4E6CFE;width: 50%;margin-left:22%">
+
+
+<div class="container" style="width:100%;margin-top:5%;margin-bottom:5%;margin-left: 0%;margin-right: 0%;">
+
+      <form class="form-signin">
+        <h2 class="form-signin-heading"></h2>
+       	
+        <h4>Usuario</h4>
+        <div class="input-group" style="margin:0.5em;">
+			  <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
+
+			  <%= text_field_tag :siglas,"", class: 'form-control siglas' %>
+			</div>
+			<h4>Contraseña</h4>
+		<div class="input-group"style="margin:0.5em;margin-bottom: 3%;">
+			  <span class="input-group-addon glyphicon glyphicon-lock" id="basic-addon1"></span>
+			  <%= password_field_tag :password,"",	 class: 'form-control contrau' %>
+			</div>
+			
+       <% @current_user %>
+        <%= submit_tag "Entrar",class: "btn btn-primario btn-lg", style: 'margin:0.5em;',:onclick => "return  loginvali(@curre)" %>
+    <a href="javascript:history.back()" class="btn btn-primario btn-lg"  style="margin-left:20px;">Cancelar</a>
+      </form>
+
+
+  </div>    
+
+
+
+
+</div>
+
+<% end %>
+
+<!--<%= link_to "Registrarse!" ,:controller => "users", :action => "new" %>-->
