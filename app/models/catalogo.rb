@@ -1,10 +1,12 @@
 class Catalogo < ActiveRecord::Base
 	def self.search(search)
 		if search
-			where(["nombre ILIKE ?" ,"%#{search}%"])
-		else
+			where(["nombre ILIKE ? or entidad ILIKE ? or informante ILIKE ?" ,"%#{search}%", "%#{search}%", "%#{search}%"])
+		else 
 			all
 		end
+
+
 	end
 	#validates :nombre, :presence => {:message => "no puede estar vacio"}, length: {minimum: 6, maximum: 200, :message => " debe tener entre 6 y 200 caracteres"}
 	#validates :mercado, :presence => {:message => "no puede estar vacio"}, length: {minimum: 6, maximum: 500, :message => " debe tener entre 6 y 500 caracteres"}
