@@ -6,7 +6,7 @@ class CatalogosController < ApplicationController
   def index
 
     @catalogos = Catalogo.search(params[:search]).order('nombre ASC').page(params[:page]).per(10)
-    
+   
     if current_user  
     
     c = current_user
