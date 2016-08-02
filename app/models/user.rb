@@ -1,4 +1,13 @@
 class User < ActiveRecord::Base
+ 
   has_secure_password
-  validates :email,  uniqueness: {case_sensitive: false ,message: "este correo ya esta registrado"}, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,  on: :create, :message => "Ingrese un correo valido"}
+  validates_presence_of :password, :on => :create
+  before_create { generate_token(:auth_token) }
+  
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
+
 end

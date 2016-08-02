@@ -91,8 +91,8 @@
 <h1 style="margin:5px 0.5em;float:left;position:relative;width:60%;">Mostrando Catálogo de Servicios</h1>
 <%= form_tag catalogos_path, :method => "get" do %>
   <div class="input-group col-md-4" style="padding: 5px;float:right;">
-      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Nombre del Servicio"%>
-      
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Palabra Clave"%>
+
     <span class="input-group-btn">
         <%= submit_tag "Search" , class: "btn btn-primary" , name: nil %>
         </span>

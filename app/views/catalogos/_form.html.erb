@@ -35,7 +35,7 @@
  
 
   <%=f.label :Tipo, :style=>"width:10%;float:left;margin:0 0.3em;display: none;"%>
-  <%= f.text_field :tipo, :value => params[:id],class: "col-md-6 form-control tipo", placeholder: "Tipo del Servicio", :style=>"width:30%;float:left; display: none;"%><br><br><br><br>
+  <%= f.text_field :tipo, class: "col-md-6 form-control tipo", placeholder: "Tipo del Servicio", :style=>"width:30%;float:left;"%><br><br><br><br>
 
   <%= f.label :Infraestructura, :style=>"width:10%;float:left;margin:0 0.3em;" %>
   <%= f.text_area :infraestructura, class: "form-control text_area1 infra", placeholder: "Infraestructura del Servicio",:style=>"width:40%;float:left;"%><br><br><br><br>

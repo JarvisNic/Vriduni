@@ -22,16 +22,22 @@
 		<div class="input-group" style="">
 			  <span class="input-group-addon glyphicon glyphicon-lock" id="basic-addon1"></span>
 			  <%= password_field_tag :password,"",	 class: 'form-control contrau' %>
+         
 			</div>
-			
+		
        <% @current_user %>
       <div style="margin-top:20px;">
         <%= submit_tag "Entrar",class: "btn btn-primario btn-lg", style: '',:onclick => "return  loginvali(@curre)" %>
         <a href="javascript:history.back()" class="btn btn-primario btn-lg"  style="margin-left:20px;">Cancelar</a>
         </div>
+        <div class="field">
+   
+  </div>  
+  <%= label_tag :Recordar %>
+  <%= check_box_tag :remember_me, 1, params[:remember_me] %>
       </form>
 
-<h4 style="margin-top: 20px;"> <%= link_to "¿Olvido su Contraseña?",target: '_blank',:controller => "index", :action => "inicio"  %> </h4>
+<p class="input group"><%= link_to "Olvido su contraseña?", new_password_reset_path %></p>
 
   </div>    
 

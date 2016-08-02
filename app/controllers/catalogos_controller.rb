@@ -96,7 +96,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def catalogo_params
-      params.require(:catalogo).permit(:nombre, :mercado, :infraestructura, :descripcion, :resultados, :informante, :entidad, :autorizado, :fregistro, :categorizacion)
+      params.require(:catalogo).permit(:nombre, :mercado, :categorizacion, :tipo, :infraestructura, :descripcion, :resultados, :fregistro, :informante, :entidad, :autorizado)
     end
 end
 
