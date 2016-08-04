@@ -322,7 +322,7 @@ section .descipcion p {
 }
 .slid-btns_nav:hover{opacity:.4}
 .slid-btns_navactive{opacity:1}
-.slid-btns_nav.next{left:45.7%;background-position:right top;right:0}
+.slid-btns_nav.next{left:49.4%;background-position:right top;right:0}
 .slid-btns_navfocus{outline:none}
 .slid-btns .caption{
   display:block;
@@ -332,7 +332,7 @@ section .descipcion p {
   color:#fafafa;
   width:60%;
   font-size:20px;
-  left:4  0%;
+  left:40%;
   right:20%;
   top:25%;
   margin:0;
@@ -394,7 +394,7 @@ section .descipcion p {
 }
 
 /*Alejandro toco todo esto*/
-div.imageback
+div.panalback
 {
   background-image: url("panal.png");
   background-size: contain;
@@ -405,6 +405,11 @@ div.imageback
   padding-right: 0;
   padding-bottom: 0;
 }
+
+div.rotate{
+ transform: rotateY(180deg); 
+}
+
 div.conten{
   
   text-align: center;
@@ -537,4 +542,11 @@ p.sas
   margin-left:8%; 
   margin-right:10%;
   margin-top: 5%;
+}
+
+.soho2{
+  margin-left:1%; 
+  margin-top: 2%;
+  font-family: 'Roboto Slab', serif;
+  margin-right: 0;
 }

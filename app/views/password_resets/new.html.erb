@@ -1,2 +1,15 @@
-<h1>PasswordResets#new</h1>
-<p>Find me in app/views/password_resets/new.html.erb</p>
+<h1>Recuperación de Contraseña</h1>
+<%= form_tag password_resets_path, :method => :post do %>
+<div class="body"></div>
+
+		<div class="login">
+		<h3>Para recuperar su contraseña debemos enviar un mensaje con instrucciones al correo </h3>
+		
+		<%= text_field_tag :email ,"", class: 'form-control userema',:placeholder=>"ejemplo@com",:autofocus=>"false" ,:style=>"width:16%;float:left;margin:0.3em ;" %><br>
+  <div class="actions" style="width:45%; margin:0.3em 2em;margin-top:-2%;">
+    <%= submit_tag "Enviar ahora!!", class: "btn btn-primary btn-lg",:onclick => "return validareset()"%><br><br>
+
+
+   <a href="javascript:history.back()" class="btn btn-primary btn-sm" >¿Qué hago aquí?</a>
+</div>
+<% end %>

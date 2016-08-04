@@ -26,58 +26,78 @@
 <div class="margin-zero" >
    <header style="overflow:auto;padding-right: 0;width:100%;background-color: #FFFFFF;" >
 
+<div class="container panalback" style="width:100%;padding-bottom: 0px;">
 
-<div class="container imageback" style="width:100%;padding-bottom: 0px;">
+<div class="margin-zero" style="float:left;"> 
+<%= image_tag "logo1.png", :class => "logo", :style => "width:15%;margin-right=0%;"%>
 
-<%= image_tag "logo1.png", :class => "logo", :style => "margin-top:1%;margin-bottom:0.6%;float:left;he;"%>
+<h1 class="soho2" style="float:left;width:50%;">Vice-Rectoria de Investigacion y Desarrollo Programa de Acompañamiento a Proyecto</h1>
 
 
-<div  style="float:right; width:40%;">
 
-<div style="width:40%;float:right;margin-right: 5%;margin-top: 3%;margin-left:0%">
+<div  style="float:right; width:30%;margin-top:1%;">
 
 <div class="conten"  style="margin-top: 10%;margin-bottom: 10%;">
  
-<p class="sas">
 
-  <%= link_to "> CONVOCATORIAS", "http://www.uni.edu.ni/Investigacion/Convocatorias",target: '_blank',:style => "color: white;"%>
-</p>
+<div class="margin-zero" style="width:40%;margin-right:0%;float:left;margin-top: 1%;">
 
-</div>
-
-<div class="conten"  style="margin-top: 10%;margin-bottom: 1%;">
-<p class="sas">
-  <%= link_to "> CONSEJO CIENTÍFICO", "http://www.uni.edu.ni/Investigacion/Consejo_Cientifico",target: '_blank',:style => "color: white;"%>
-</p>
-
-</div>
-
-</div>
-
-<div style="width:40%;margin-bottom:0;padding-bottom: 0;margin-left:25%;margin-top: 4%;margin-right:0%">
-
-<div class="conten"  style="width:40%;margin-top:1%;">
-<p class="sas">
+      <div class="conten"  style="width:40%;margin-top:0%;">
+      <p class="sas">
   <%= link_to "> UNI", "http://www.uni.edu.ni",target: '_blank',:style => "color: white;"%>
-</p>
+      </p>
 
-</div>
-<div class="conten"  style="width:40%;">
-<p class="sas">
-  <%= link_to "> VRID", "http://www.uni.edu.ni/Investigacion/VRID",target: '_blank',:style => "color: white;"%>
-</p>
+    </div>
+      <div class="conten"  style="width:40%;">
+      <p class="sas">
+      <%= link_to "> VRID", "http://www.uni.edu.ni/Investigacion/VRID",target: '_blank',:style => "color: white;"%>
+      </p>
 
-</div>
-<div class="conten" style="width:40%;margin-bottom:0;">
-<p class="sas">
+      </div>
+
+    <div class="conten" style="width:40%;margin-bottom:0;">
+    <p class="sas">
   <%= link_to "> DI", "http://www.uni.edu.ni/Investigacion/DI",target: '_blank',:style => "color: white;"%>
-</p>
+      </p>
+
+        </div>
+
+</div>
+
+<div class="margin-zero" style="width:40%;float:left;margin-right:0%;">
+
+      <div class="conten"  style="margin-top: 10%;margin-bottom: 10%;">
+
+      <p class="sas">
+      <%= link_to "> CONVOCATORIAS", "http://www.uni.edu.ni/Investigacion/Convocatorias",target: '_blank',:style => "color: white;"%>
+      </p>
+
+      </div>
+
+      <div class="conten"  style="margin-top: 10%;margin-bottom: 1%;">
+      <p class="sas">
+     <%= link_to "> CONSEJO CIENTÍFICO", "http://www.uni.edu.ni/Investigacion/Consejo_Cientifico",target: '_blank',:style => "color: white;"%>
+      </p>
+
+      </div>
 
 </div>
 
 </div>
 
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -167,15 +187,15 @@
 
 
 <% if @nav == "inicio" %>
-<div class="container" style="width:100%;margin-left:5%;background-color: #eeeeee;">
+<div class="container margin-zero;" style="width:90%;margin-left:5%;background-color: #eeeeee;">
 
-<div class="contslider" style="background-color: #eeeeee;">  
-  <div class="slider" style="background-color: #eeeeee;" >
-      <ul class="rslides" id="slider-home" style="background-color: #eeeeee;">
+<div class="contslider margin-zero" style="background-color: #eeeeee;">  
+  <div class="slider margin-zero" style="background-color: #eeeeee;" >
+      <ul class="rslides margin-zero" id="slider-home" style="background-color: #eeeeee;margin-right:0%;">
         
         <li style="width: 61.8%;">
            <div > <%= image_tag "conicit1.png"%> </div>
-           <div style="float: left;;width:74%;color: #003485;background-color:  #FFFFFF;margin-left: 89%;">
+           <div style="float: left;;width:86%;color: #003485;background-color:  #FFFFFF;margin-left: 95.5%;margin-right:0%">
           <h1 style="text-align: left;margin-left:2%;">Propiedad Intelectual… ¿Por qué y para qué?</h1>
             <h3 style="text-align: left;width: 80%;height:112px;margin-left:2%;">
             <%= link_to  "Investigadores y emprendedores fueron parte de la conferencia acerca de las formas de protección de la propiedad intelectuall, ya sea patentes y .... Ver mas", "http://www.uni.edu.ni/Articulo/Ver/Propiedad-Intelectual-Por-que-y-para-que", {:style => 'color: #003485'} %>
@@ -185,7 +205,7 @@
 
         <li style="width: 61.8%;">
            <div style="width:10%"> <%= image_tag "aguatec.png"%> </div>
-           <div style="float: left;;width:74%;color: #003485;background-color:  #FFFFFF;margin-left: 89%;">
+           <div style="float: left;;width:86%;color: #003485;background-color:  #FFFFFF;margin-left: 95.5%;">
           <h1 style="text-align: left;margin-left:2%;">Aprovechar agua subterránea</h1>
             <h3 style="text-align: left;width: 80%;height:154px;margin-left:2%;">
             <%= link_to  "Estudiantes de Ingeniería Civil e Ingeniería Agrícola participaron de la conferencia “El aprovechamiento del agua subterránea, conociendo el recurso” impartida por.... Ver mas", "http://www.uni.edu.ni/Articulo/Ver/Propiedad-Intelectual-Por-que-y-para-que", {:style => 'color: #003485'} %>

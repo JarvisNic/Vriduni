@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
 
+default_url_options :host => "localhost:3000"
+  
 
-
-  get 'password_resets/new'
-
+  resources :proyectos 
   resources :students
+  resources :password_resets
+  resources :students
+  resources :convenios
+  resources :users
+  resources :catalogos
+  resources :sessions, only: [:new, :create, :destroy]
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'student/new'
 
   get 'student/create'
@@ -15,23 +24,16 @@ Rails.application.routes.draw do
 
   get 'student/destroy'
 
-  resources :convenios
   
-  resources :users
   
-  resources :catalogos
+  
   get 'catalogo/form_1'
  
 
 
-  resources :sessions, only: [:new, :create, :destroy]
-  get 'signup', to: 'users#new', as: 'signup'
-  get 'login', to: 'sessions#new', as: 'login'
-  get 'logout', to: 'sessions#destroy', as: 'logout'
+
   
-  resources :proyectos 
-  resources :students
-  resources :password_resets
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
